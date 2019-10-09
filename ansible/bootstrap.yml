@@ -1,0 +1,60 @@
+# https://gist.githubusercontent.com/meloos/e3dfaecf366a7311067a3b43759ebea8/raw/ffa071884acefdc06b3d416e9bb93f4b7d331865/bootstrap.yml
+
+- hosts: localhost
+  vars:
+    homebrew_upgrade_all_packages: yes
+    mas_upgrade_all_apps: yes
+
+    homebrew_taps:
+      - homebrew/core
+      - homebrew/cask-fonts
+
+    homebrew_installed_packages:
+      - python
+      - python3
+      - git
+      - wget
+      - zsh
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+      - jq
+      - tree
+      - nvim
+      - nmap
+      - ssh-copy-id
+      - htop
+      - speedtest-cli
+      - openssl
+      - iperf
+      - autoconf
+      - gpg
+      - cowsay
+      - fzf
+      - tmux
+      - ack
+      - awscli
+
+    homebrew_cask_apps:
+      - slack
+      - microsoft-edge
+      - visual-studio-code
+      - spotify
+      - alfred
+      - tunnelblick
+      - zoomus
+      - the-unarchiver
+      - iterm2
+      - microsoft-office
+      - postman
+      - docker
+      - handbrake
+      - font-fira-code
+      - parallels
+      - boom-3d
+
+    mas_installed_apps:
+      - { id: 441258766, name: "Magnet" }
+
+  roles:
+    - geerlingguy.homebrew
+    - geerlingguy.mas

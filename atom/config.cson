@@ -1,0 +1,11 @@
+"*":
+  core:
+    openEmptyEditorOnStart: false
+    telemetryConsent: "no"
+  editor:
+    preferredLineLength: 160
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  welcome:
+    showOnStartup: false

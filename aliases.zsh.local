@@ -1,0 +1,39 @@
+# https://github.com/changs/slimzsh
+
+export SSH_ENV="${HOME}/.ssh/env";
+export GPG_TTY=$(tty)
+
+alias ta='tmux attach -t ∞ || tmux new -s ∞'
+alias ssm='aws ssm start-session --target '
+alias fucking='sudo'
+
+alias tf="nocorrect tf-wrapper-func" 
+
+
+if [ -z ${TMUX} ]; then
+    echo "Use the tmux, Luke "
+fi
+
+tf-wrapper-func() {
+  if [ -z $AWS_PROFILE ]; then
+    echo AWS_PROFILE not set
+    return
+  else
+    echo [INFO] AWS_PROFILE=$AWS_PROFILE
+  fi
+  #docker run --rm -it -v ${HOME}/.aws:/root/.aws -v ${PWD}:/code -w /code -e AWS_PROFILE=${AWS_PROFILE} hashicorp/terraform:0.11.14 $@
+  # actually a wrapper script to make it even more universal
+  /usr/local/bin/terraform $@
+}
+
+start_agent() {
+    echo "Initialising new ssh-agent... ";
+    ssh-agent | grep -v echo > "${SSH_ENV}";
+    chmod 600 "${SSH_ENV}";
+    . "${SSH_ENV}";
+}
+
+if [ -f ${SSH_ENV} ]; then
+    # source the env file
+    . "${SSH_ENV}" || echo "Unable to source the ${SSH_ENV} file!"
+fi
