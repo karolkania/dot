@@ -6,8 +6,11 @@ export GPG_TTY=$(tty)
 alias ta='tmux attach -t ∞ || tmux new -s ∞'
 alias ssm='aws ssm start-session --target '
 alias fucking='sudo'
+alias dc="docker-compose"
 
 alias tf="nocorrect tf-wrapper-func" 
+
+unsetopt correct_all
 
 
 if [ -z ${TMUX} ]; then
@@ -28,7 +31,7 @@ tf-wrapper-func() {
 
 start_agent() {
     echo "Initialising new ssh-agent... ";
-    ssh-agent | grep -v echo > "${SSH_ENV}";
+    ssh-agent # | grep -v echo > "${SSH_ENV}";
     chmod 600 "${SSH_ENV}";
     . "${SSH_ENV}";
 }
