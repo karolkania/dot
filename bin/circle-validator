@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -z $CIRCLE_TOKEN ]]; then
+    echo "Please export CIRCLE_TOKEN forst."
+    exit 1
+fi
+
+docker pull circleci/circleci-cli:alpine &> /dev/null
+docker run --rm -v $(pwd):/data circleci/circleci-cli:alpine config validate /data/config.yml --token $CIRCLE_TOKEN

@@ -32,16 +32,17 @@
   l  = log --pretty=oneline -n 20 --graph --abbrev-commit
   lo = log --pretty=format:"%C(yellow)%h%Creset\\ %s\\ %Cblue[%cr\\ by\\ %cn]" --decorate -10
 
-  st = status -s   # View the current working tree status using the short format
+  st  = status    # View the current working tree status
+  sts = status -s # View the current working tree status using the short format
 
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
 
-  previous = "!sh -c \"git diff HEAD HEAD~$1\" "
+  previous = "!sh -c \"git diff HEAD  HEAD~$1\" "
   last     = show --stat HEAD
   undo     = reset --soft HEAD~1
 
-  ca       = !git add -A && git commit -av # Commit all changes
-  all      = git add .
+  ca       = !git add -A && git commit -av   # Commit all changes
+  all      = add .
   ci       = commit -m
   amend    = commit --amend
 
@@ -50,7 +51,7 @@
   develop  = checkout develop
 
   # Switch to a branch, creating it if necessary
-  go       = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
   # Show verbose output about tags, branches or remotes
   tags     = tag -l
@@ -59,7 +60,7 @@
   url      = "!echo https://$(git config --get remote.origin.url | sed -e 's,:,/,g' | cut -c 5-)"
 
   # List aliases
-  aliases  = config --get-regexp alias
+  aliases = config --get-regexp alias
 
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
