@@ -2,10 +2,11 @@
   program = gpg
 
 [user]
-  signingkey = 6A95B3DA9C69FC43
   name = Karol Kania
-  email = 5146748-karol.kania@users.noreply.gitlab.com
-    #email = 44871508+karolkania@users.noreply.github.com
+  signingkey = 6A95B3DA9C69FC43
+  email = 44871508+karolkania@users.noreply.github.com
+  # email = 999044+khanyooh@users.noreply.github.com
+  # email = 5146748-karol.kania@users.noreply.gitlab.com
 
 [commit]
   # https://help.github.com/articles/signing-commits-using-gpg/
@@ -43,7 +44,7 @@
 
   ca       = !git add -A && git commit -av   # Commit all changes
   all      = add .
-  ci       = commit -m
+  ci       = commit
   amend    = commit --amend
 
   co       = checkout

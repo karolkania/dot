@@ -1,18 +1,9 @@
-execute pathogen#infect()
-filetype plugin indent on
-
-"call plug#begin()
-"Plug 'kaicataldo/material.vim'
-"call plug#end()
-
 " Show line number
 set number
 
 " Theme
 "set background=light
 set background=dark
-"colorscheme material
-"colorscheme solarized
 
 " Always show current position
 set ruler
