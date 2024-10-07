@@ -115,6 +115,7 @@ export GPG_TTY=$(tty)
 export NPM_TOKEN=
 export GITLAB_TOKEN=$NPM_TOKEN
 export CIRCLE_TOKEN=
+export RPROMPT="%DT%T"
 
 alias ta='tmux attach -t ∞ || tmux new -s ∞'
 alias ssm='aws ssm start-session --target '
