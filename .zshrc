@@ -125,7 +125,7 @@ if [ -z ${TMUX} ]; then
     echo "Use the tmux, Luke "
 fi
 
-start_agent() {
+start_ssh_agent() {
     echo "Initialising new ssh-agent... ";
     ssh-agent | grep -v echo > "${SSH_ENV}";
     chmod 600 "${SSH_ENV}";
